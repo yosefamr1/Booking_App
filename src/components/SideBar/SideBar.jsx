@@ -7,16 +7,11 @@ import {
     Button,
 } from 'flowbite-react';
 
-import {
-    HiChartPie,
-    HiClipboard,
-    HiCollection,
-    HiInformationCircle,
-    HiLogin,
-    HiPencil,
-    HiShoppingBag,
-    HiUsers,
-} from 'react-icons/hi';
+import { GiExplodingPlanet } from "react-icons/gi";
+import { FaClipboardQuestion } from "react-icons/fa6";
+import { IoMdHome } from "react-icons/io";
+import { FaClipboardUser } from "react-icons/fa6";
+
 
 function SideBar() {
     const [collapsed, setCollapsed] = useState(false);
@@ -43,36 +38,25 @@ function SideBar() {
                             base: "!bg-blue-600 !text-white"
                         }
                     }}>
-                    <SidebarItems className='my-[-16px] mx-[-16px]  ' >
-                        <SidebarItemGroup className='bg-blue-600' >
-                            <SidebarItem href="/" icon={HiChartPie}>
-                                {!collapsed && 'Dashboard'}
+                    <SidebarItems className='!text-white my-[-16px] mx-[-16px]  ' >
+                        <SidebarItemGroup className='bg-blue-600 '  >
+                            <SidebarItem href="/home" icon={() => <IoMdHome color="white" size={20} />} className='text-white' >
+                                {!collapsed && 'Home'}
                             </SidebarItem>
-                            <SidebarItem href="/products" icon={HiShoppingBag}>
-                                {!collapsed && 'Products'}
+                            <SidebarItem href="/home" icon={() => <FaClipboardUser color="white" size={20} />} className='text-white' >
+                                {!collapsed && 'My Bookings'}
                             </SidebarItem>
-                            <SidebarItem href="/users" icon={HiUsers}>
-                                {!collapsed && 'Users'}
+                            <SidebarItem href="/home" icon={() => <GiExplodingPlanet color="white" size={20} />} className='text-white' >
+                                {!collapsed && 'Explore'}
                             </SidebarItem>
-                            <SidebarItem href="/login" icon={HiLogin}>
-                                {!collapsed && 'Sign In'}
+                            <SidebarItem href="/home" icon={() => <FaClipboardQuestion color="white" size={20} />} className='text-white' >
+                                {!collapsed && 'Support'}
                             </SidebarItem>
-                            <SidebarItem href="/signup" icon={HiPencil}>
-                                {!collapsed && 'Sign Up'}
-                            </SidebarItem>
+
+
+                          
                         </SidebarItemGroup>
 
-                        {/* <SidebarItemGroup className='bg-blue-600 '>
-                            <SidebarItem href="https://github.com/" icon={HiClipboard}>
-                                {!collapsed && 'Docs'}
-                            </SidebarItem>
-                            <SidebarItem href="https://flowbite-react.com/" icon={HiCollection}>
-                                {!collapsed && 'Components'}
-                            </SidebarItem>
-                            <SidebarItem href="https://github.com/issues" icon={HiInformationCircle}>
-                                {!collapsed && 'Help'}
-                            </SidebarItem>
-                        </SidebarItemGroup> */}
                     </SidebarItems>
                 </Sidebar>
             </div>
