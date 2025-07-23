@@ -6,7 +6,7 @@ import SideBar from '../SideBar/SideBar';
 function NavBar() {
   return (
     <>
-      <div className="w-screen h-[325px] bg-cover bg-no-repeat bg-center"
+      <div className="w-screen h-[325px] bg-cover bg-no-repeat bg-center mb-4"
         style={{ backgroundImage: `url(${headerBg})` }}>
 
 
