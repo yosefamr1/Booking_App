@@ -19,10 +19,10 @@ function SideBar() {
     const toggleSidebar = () => setCollapsed(!collapsed);
 
     return (
-        <div className={`rounded-lg h-[650px] bg-blue-600 text-white flex flex-col transition-all duration-300 ${collapsed ? 'w-[60px]' : 'w-[250px]'}`}>
+        <div className={`absolute top-4 left-4 rounded-lg h-[650px] bg-blue-600 text-white flex flex-col transition-all duration-300 ${collapsed ? 'w-[60px]' : 'w-[250px]'}`}>
 
-            <div className=" p-2 flex justify-end">
-                <button onClick={toggleSidebar} className="text-white">
+            <div className=" p-5 flex justify-end">
+                <button onClick={toggleSidebar} className="text-white ">
 
                     <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
@@ -40,33 +40,32 @@ function SideBar() {
                     }}>
                     <SidebarItems className='!text-white my-[-16px] mx-[-16px]  ' >
                         <SidebarItemGroup className='bg-blue-600 '  >
-                            <SidebarItem href="/home" icon={() => <IoMdHome color="white" size={20} />} className='text-white' >
+                            <SidebarItem href="/home" icon={() => <IoMdHome color="white" size={20} />} className='text-white pl-5' >
                                 {!collapsed && 'Home'}
                             </SidebarItem>
-                            <SidebarItem href="/home" icon={() => <FaClipboardUser color="white" size={20} />} className='text-white' >
+                            <SidebarItem href="/login" icon={() => <FaClipboardUser color="white" size={20} />} className='text-white pl-5' >
                                 {!collapsed && 'My Bookings'}
                             </SidebarItem>
-                            <SidebarItem href="/home" icon={() => <GiExplodingPlanet color="white" size={20} />} className='text-white' >
+                            <SidebarItem href="/home" icon={() => <GiExplodingPlanet color="white" size={20} />} className='text-white pl-5' >
                                 {!collapsed && 'Explore'}
                             </SidebarItem>
-                            <SidebarItem href="/home" icon={() => <FaClipboardQuestion color="white" size={20} />} className='text-white' >
+                            <SidebarItem href="/home" icon={() => <FaClipboardQuestion color="white" size={20} />} className='text-white pl-5' >
                                 {!collapsed && 'Support'}
                             </SidebarItem>
-
-
-                          
                         </SidebarItemGroup>
 
                     </SidebarItems>
                 </Sidebar>
             </div>
 
-
-            <div className="mt-auto p-1">
-                <Button color="light" className="w-full text-red-500 border-red-500 hover:bg-red-100">
-                    {!collapsed && 'Sign Up Now'}
-                </Button>
-            </div>
+            {!collapsed &&
+                <div className="mt-auto p-1">
+                    <Button color="light" className="w-full text-red-500 border-red-500 hover:bg-red-100">
+                        {/* {!collapsed && 'Sign Up Now'} */}
+                        Sign Up Now
+                    </Button>
+                </div>
+            }
         </div>
     );
 }
