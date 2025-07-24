@@ -1,9 +1,9 @@
 import { Card } from "flowbite-react";
 
-export function HotelCard({hotel}) {
-
+export function HotelCard({ hotel, onClick }) {
+    
     return (
-        <Card className="w-1/4" imgSrc={hotel.images.main} horizontal>
+        <Card imgSrc={hotel.images.main} horizontal onClick={onClick}>
             <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                 <p className="text-sm">hotel</p>
                 {hotel.name}
