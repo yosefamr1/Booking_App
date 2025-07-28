@@ -1,21 +1,30 @@
 @tailwind base;
 @tailwind components;
-@import 'flowbite'; 
+@import 'flowbite';
 @tailwind utilities;
 
 
 
-*{
+* {
   padding: 0;
-  margin: 0 ;
-  box-sizing: border-box    ;
+  margin: 0;
+  box-sizing: border-box;
 }
-
+body{
+   background-color: #f0f4f6;
+  }
 .adjust-width {
   width: 95%;
   margin: 0 auto;
 }
-h3{
+
+h3 {
   font-size: 16px;
   font-weight: bold;
+}
+
+h1 {
+  font-size: 24px;
+  font-weight: bold;
+
 }

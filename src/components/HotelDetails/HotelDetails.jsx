@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import { fetchHotelDetails } from '../../network/hotelsAPI';
 import { Carousel } from "flowbite-react";
+import Button from '../../components/Button/Button'
+import { useNavigate, useParams } from "react-router-dom";
 
 
 function HotelDetails({ hotelId }) {
 
     const id = hotelId;
     const [hotel, setHotel] = useState(null);
+    const navigate = useNavigate();
+
 
     useEffect(() => {
         const callApi = async () => {
@@ -22,6 +26,9 @@ function HotelDetails({ hotelId }) {
     }, [id]);
 
     if (!hotel) return <div>Loading...</div>;
+
+
+
 
     return (
         <div className="hoteldeatails bg-white p-4 rounded-lg shadow-md mr-4 gap-4">
@@ -44,6 +51,13 @@ function HotelDetails({ hotelId }) {
                     {/* reviews */}
                     <h3>About</h3>
                     <p>{hotel.description}</p>
+                    <Button
+
+                        label="Pay Now"
+                        color="blue"
+                        onClick={() => navigate(`/bookingreview/${id}`, { state: { hotel } })}
+                    />
+
                 </div>
             </div>
         </div>

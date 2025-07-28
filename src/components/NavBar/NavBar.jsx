@@ -52,12 +52,13 @@ function NavBar() {
 
         <div className='flex justify-between  ml-auto'>
           {/* <SideBar className="fixed top-0 left-0 z-50" /> */}
+          
           <LoginLinks />
         </div>
 
         <div className='flex justify-between  ml-auto'>
           <LoginLinks />
-
+          
         </div>
 
 
