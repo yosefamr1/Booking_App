@@ -4,14 +4,14 @@ import { FaHotel, FaHome, FaTaxi, FaPlane } from "react-icons/fa";
 import { MdHotel } from "react-icons/md";
 
 export default function NavIcons() {
-    const [active, setActive] = useState("hotel");
+    const [active, setActive] = useState("");
     const navigate = useNavigate();
 
     const items = [
-        { id: "hotel", label: "HOTEL", icon: <MdHotel />, path: "/home" },
-        { id: "villa", label: "VILLA", icon: <FaHome />, path: "/home" },
-        { id: "taxi", label: "TAXI", icon: <FaTaxi />, path: "/home" },
-        { id: "flights", label: "FLIGHTS", icon: <FaPlane />, path: "/home" },
+        { id: "hotel", label: "HOTEL", icon: <MdHotel />, path: "/hotels" },
+        { id: "villa", label: "VILLA", icon: <FaHome />, path: "" },
+        { id: "taxi", label: "TAXI", icon: <FaTaxi />, path: "" },
+        { id: "flights", label: "FLIGHTS", icon: <FaPlane />, path: "" },
     ];
 
     const handleClick = (id, path) => {

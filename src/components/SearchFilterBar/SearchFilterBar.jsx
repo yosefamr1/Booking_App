@@ -7,7 +7,7 @@ function SearchFilterBar() {
   const filters = useSelector((state) => state.filters);
 
   return (
-    <div className="flex items-center justify-between gap-3 p-4 bg-gray-50 rounded-full shadow-lg">
+    <div className="flex items-center justify-between gap-3 p-4 bg-gray-50 rounded-full shadow-lg mb-4">
       
       {/* Search Input */}
       <div className="flex flex-col">
@@ -19,7 +19,7 @@ function SearchFilterBar() {
             dispatch(setFilters({ ...filters, search: e.target.value }))
           }
           className="px-4 py-2 rounded-full bg-white font-semibold outline-none"
-          placeholder="Egypt"
+          // placeholder="Egypt"
         />
       </div>
 

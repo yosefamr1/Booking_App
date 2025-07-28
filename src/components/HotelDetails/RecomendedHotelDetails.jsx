@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { fetchHotelDetails } from '../../network/hotelsAPI';
 import { Carousel } from "flowbite-react";
-import Button from '../../components/Button/Button'
+import Button from '../Button/Button'
 import { useNavigate, useParams } from "react-router-dom";
 
 

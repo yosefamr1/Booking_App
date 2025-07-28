@@ -58,13 +58,13 @@ function NavBar() {
       ) : (
         // if there is no user logged in
         <div
-          className="flex flex-col justify-between w-screen h-[325px] bg-cover bg-no-repeat bg-center mb-4"
+          className="flex flex-col justify-between w-screen h-[325px] bg-cover bg-no-repeat bg-center mb-4 pr-16 pt-8"
           style={{ backgroundImage: `url(${headerBg})` }}
         >
           <div className="flex justify-between ml-auto">
             <LoginLinks />
           </div>
-          <div className="flex justify-between ml-auto">
+          <div className="w-fit  ml-80">
             <NavIcons />
           </div>
         </div>

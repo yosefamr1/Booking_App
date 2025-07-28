@@ -11,6 +11,8 @@ import RegisterPage from './pages/RegisterPage/Register'
 import BookingReview from './pages/BookingReview/BookingReview'
 import { useDispatch } from 'react-redux'
 import { loadUserFromStorage } from './store/userSlice'
+import HotelCard from './components/HotelCard/HotelCard'
+import HotelsPage from './pages/HotelsPage/HotelsPage'
 
 function App() {
 
@@ -30,6 +32,8 @@ function App() {
         <Route path="/bookingreview/:id" element={<BookingReview />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
+        <Route path="/hotels" element={<HotelsPage />} />
+
 
 
 

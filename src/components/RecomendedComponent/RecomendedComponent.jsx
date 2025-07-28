@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { fetchRecommendedHotels } from '../../network/hotelsAPI';
-import HotelCard from '../HotelCard/HotelCard';
+import RecomendedHotelCard from '../RecomendedHotelCard/HotelCard';
 import { IoChevronBack, IoChevronForward } from 'react-icons/io5';
 
 
@@ -67,7 +67,7 @@ function RecomendedComponent() {
                             key={hotel.id}
                             className="min-w-[280px] md:min-w-[300px] transition-transform duration-500 ease-in-out"
                         >
-                            <HotelCard key={hotel.id} hotel={hotel}
+                            <RecomendedHotelCard key={hotel.id} hotel={hotel}
                                 onClick={() => details(hotel.id)}
                             />                    </div>
                     ))}

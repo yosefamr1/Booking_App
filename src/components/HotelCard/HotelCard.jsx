@@ -1,60 +1,72 @@
-import { Card } from "flowbite-react";
+import React, { useEffect, useState } from 'react'
+import { FaParking, FaStar, FaWifi } from 'react-icons/fa'
+import { useNavigate } from 'react-router-dom';
 
-export function HotelCard({ hotel, onClick }) {
-    
+function HotelCard({ hotel, onClick }) {
+    const navigate = useNavigate();
+
+    const amenities = hotel.amenities;
+    console.log(amenities);
+
+
     return (
+        <>
+            <div className="flex bg-white rounded-lg shadow-md overflow-hidden w-[600px] h-[175px]">
+                {/* الصورة */}
+                <div className="w-1/3">
+                    <img
+                        src={hotel.images.main}
+                        alt="hotel"
+                        className="w-full h-full object-cover"
+                    />
+                </div>
 
-        <Card imgSrc={hotel.images.main} horizontal onClick={onClick} className="max-w-md mx-auto m-12">
-            <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                <p className="text-sm">hotel</p>
-                {hotel.name}
-            </h5>
-            {/* <p className="font-normal text-gray-700 dark:text-gray-400">
-                Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.
-            </p> */}
-        </Card>
-    );
+                {/* التفاصيل */}
+                <div className="w-2/3 p-4 flex flex-col justify-between">
+                    {/* العنوان + التقييم */}
+                    <div className="flex justify-between items-start">
+                        <div>
+                            <h2 className="text-lg font-bold">
+                                {hotel.name}
+                            </h2>
+                            <p className="text-gray-500 text-sm">{hotel.address.street} , {hotel.address.city}</p>
+                        </div>
+                        <div className="flex items-center bg-blue-500 text-white text-sm px-2 py-1 rounded-full">
+                            {hotel.rating.score} <FaStar className="ml-1 text-yellow-300" />
+                        </div>
+                    </div>
+
+                    {/* الخدمات */}
+                    <div className="flex gap-6 text-gray-600 text-sm mt-2">
+                        <span className="flex items-center gap-1">
+                            <FaParking /> Parking
+                        </span>
+                        <span className="flex items-center gap-1">
+                            <FaWifi /> Wifi
+                        </span>
+                    </div>
+
+                    {/* السعر والأزرار */}
+                    <div className="flex justify-between items-center mt-3">
+                        <div>
+                            <span className="text-orange-500 font-bold text-sm">{hotel.pricing[0].discount}</span>
+                            <p className="text-xl font-bold">${hotel.pricing[0].originalPrice}</p>
+                        </div>
+                        <div className="flex gap-2">
+                            <button onClick={onClick} className="px-3 py-1 border rounded-md text-gray-700">
+                                View Details
+                            </button>
+                            <button  className="px-3 py-1 bg-blue-500 text-white rounded-md"
+                             onClick={() => navigate(`/bookingreview/${hotel.id}`, { state: { hotel } })}
+                            >
+                                BOOK NOW
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </>
+    )
 }
 
 export default HotelCard
-
-
-// import { Link } from "react-router-dom";
-
-// function RecommendedCard({ recHotel }) {
-//   return (
-//     <Link to={/hotelDetails/${recHotel.id}}>
-//       <div className="max-w-md mx-auto">
-//         <div className="flex bg-white rounded-2xl shadow-xl p-4 md:p-6 items-center gap-4">
-//           <img
-//             src={recHotel?.images?.main}
-//             alt="Hotel"
-//             className="w-28 h-36 object-cover rounded-xl shadow-sm"
-//           />
-
-//           <div className="flex-1">
-//             <p className="text-[12px] pb-2 font-semibold uppercase text-gray-400 tracking-wide">
-//               Hotel
-//             </p>
-//             <h3 className="text-lg font-bold text-gray-800 leading-tight">
-//               {recHotel?.name}
-//             </h3>
-//             <p className="text-[12px] text-gray-500 pt-2">
-//               {${recHotel?.address.street},${recHotel?.address.country}}
-//             </p>
-//             <div className="flex justify-between items-center gap-4 pt-8">
-//               <p className="text-[12px] text-gray-500">
-//                 Cupon: <span className="font-bold">DHSHJAB09D</span>
-//               </p>
-//               <button className="bg-[#fdf1f3] hover:bg-red-100 text-[#DF142D] text-sm font-medium px-4 py-2 rounded-full shadow-sm transition-colors cursor-pointer">
-//                 Book Now
-//               </button>
-//             </div>
-//           </div>
-//         </div>
-//       </div>
-//     </Link>
-//   );
-// }
-
-// export default RecommendedCard;

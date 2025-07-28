@@ -10,11 +10,13 @@ function BookingReview() {
         <>
             <NavBar className="w-full" />
             <SideBar />
-            <SearchFilterBar/>
-            <div className="content ml-80  flex justify-around">
+            <div className="content ml-80">
+                <SearchFilterBar />
+                <div className="booking flex justify-around m-4">
 
-                <PaymentDetails />
-                <BookingSummary/>
+                    <PaymentDetails />
+                    <BookingSummary />
+                </div>
 
 
 

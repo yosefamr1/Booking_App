@@ -1,5 +1,5 @@
 import React from 'react'
-import HotelDetails from '../../components/HotelDetails/HotelDetails'
+import HotelDetails from '../../components/HotelDetails/RecomendedHotelDetails'
 import NavBar from '../../components/NavBar/NavBar'
 import { useParams } from "react-router-dom";
 import RecomendedComponent from '../../components/RecomendedComponent/RecomendedComponent';
@@ -14,11 +14,11 @@ function Detailspage() {
         <>
             <NavBar className="w-full" />
             <SideBar />
-            <SearchFilterBar/>
 
-            <div className="content ml-80 ">
+            <div className="content ml-80 gap-10">
+            <SearchFilterBar/>
                 <HotelDetails hotelId={id} />
-                {/* <RecomendedComponent/> */}
+                <RecomendedComponent/>
 
 
 
