@@ -1,5 +1,5 @@
 import React from 'react'
-import HotelDetails from '../../components/HotelDetails/RecomendedHotelDetails'
+import HotelDetails from '../../components/HotelDetails/HotelDetails'
 import NavBar from '../../components/NavBar/NavBar'
 import { useParams } from "react-router-dom";
 import RecomendedComponent from '../../components/RecomendedComponent/RecomendedComponent';

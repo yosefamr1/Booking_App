@@ -13,6 +13,7 @@ import { useDispatch } from 'react-redux'
 import { loadUserFromStorage } from './store/userSlice'
 import HotelCard from './components/HotelCard/HotelCard'
 import HotelsPage from './pages/HotelsPage/HotelsPage'
+import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
 
 function App() {
 
@@ -29,16 +30,26 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/home" element={<HomePage />} />
         <Route path="/details/:id" element={<Detailspage />} />
-        <Route path="/bookingreview/:id" element={<BookingReview />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/register" element={<RegisterPage />} />
-        <Route path="/hotels" element={<HotelsPage />} />
+
+
+        <Route
+          path="/bookingreview/:id"
+          element={
+            <ProtectedRoute>
+              <BookingReview />
+            </ProtectedRoute>
+          }
+        />
+      {/* <Route path="/bookingreview/:id" element={<BookingReview />} /> */}
+      <Route path="/login" element={<LoginPage />} />
+      <Route path="/register" element={<RegisterPage />} />
+      <Route path="/hotels" element={<HotelsPage />} />
 
 
 
 
-      </Routes>
-    </div>
+    </Routes>
+    </div >
   )
 }
 

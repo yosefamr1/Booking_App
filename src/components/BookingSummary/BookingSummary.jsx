@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { fetchHotelDetails } from "../../network/hotelsAPI";
 
 function BookingSummary({
     hotelImage,
@@ -9,9 +11,33 @@ function BookingSummary({
     checkIn,
     checkOut,
     discount,
+    hotelId
 }) {
+
+
+    const id = hotelId;
+    const [hotel, setHotel] = useState(null);
+    const navigate = useNavigate();
+
     const totalPrice = pricePerNight * nights;
     const discountedPrice = totalPrice - (totalPrice * discount) / 100;
+
+
+    useEffect(() => {
+        const callApi = async () => {
+            try {
+                const res = await fetchHotelDetails(id);
+                setHotel(res);
+            } catch (error) {
+                console.error("Failed to fetch hotel datails:", error);
+            }
+        };
+
+        callApi();
+    }, [id]);
+
+    if (!hotel) return <div>Loading...</div>;
+
 
     return (
         <div className="max-w-sm border rounded-lg shadow-md p-4 bg-white">
@@ -19,20 +45,20 @@ function BookingSummary({
 
             {/* Hotel Image */}
             <img
-                src={hotelImage}
-                alt={hotelName}
+                src={hotel.images.main}
+                alt={hotel.name}
                 className="w-full h-36 object-cover rounded-lg mb-3"
             />
 
             {/* Hotel Info */}
-            <h3 className="text-lg font-semibold">{hotelName}</h3>
-            <p className="text-sm text-gray-500 mb-2">{hotelAddress}</p>
+            <h3 className="text-lg font-semibold">{hotel.name}</h3>
+            <p className="text-sm text-gray-500 mb-2">{hotel.address.street} , {hotel.address.city}</p>
 
             {/* Price Section */}
             <div className="flex items-center justify-between mb-3">
-                <span className="text-red-500 font-bold">{discount}% OFF</span>
+                <span className="text-red-500 font-bold">{hotel.pricing[0].discount}</span>
                 <div className="text-right">
-                    <p className="text-2xl font-bold">${pricePerNight}</p>
+                    <p className="text-2xl font-bold">${hotel.pricing[0].originalPrice}</p>
                     <p className="text-sm text-gray-500">Per night</p>
                 </div>
             </div>
