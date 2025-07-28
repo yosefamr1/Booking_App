@@ -2,8 +2,12 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import loginimg from '../../assets/images/login.png';
+import { useDispatch } from "react-redux";
+import { setUser } from "../../store/userSlice";
 
 export default function LoginPage() {
+  const dispatch = useDispatch();
+
   const navigate = useNavigate();
   const {
     register,
@@ -25,8 +29,9 @@ export default function LoginPage() {
       return;
     }
 
-    // Save logged user
-    localStorage.setItem("loggedUser", JSON.stringify(matchedUser));
+    // localStorage.setItem("loggedUser", JSON.stringify(matchedUser));
+    // Save logged user in redux
+    dispatch(setUser(matchedUser));
 
     alert("Login successful!");
     navigate("/home");
@@ -73,3 +78,5 @@ export default function LoginPage() {
 
   );
 }
+
+

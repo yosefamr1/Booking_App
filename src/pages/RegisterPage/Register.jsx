@@ -2,10 +2,13 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import loginimg from '../../assets/images/login.png';
+import { useDispatch } from "react-redux";
+import { setUser } from "../../store/userSlice";
 
 
 function RegisterPage() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const {
     register,
@@ -26,7 +29,11 @@ function RegisterPage() {
     }
 
     users.push(data);
+    // save in localStorage 
     localStorage.setItem("users", JSON.stringify(users));
+    //save in redux
+    dispatch(setUser(data));
+
     alert("Registration successful!");
     navigate("/login");
   };
@@ -130,7 +137,7 @@ function RegisterPage() {
         </form>
       </div>
 
-            {/* //img  */}
+      {/* //img  */}
       <div className="register_img w-1/2">
         <img className=" m-auto w-full   h-full" src={loginimg} alt="Login" />
       </div>

@@ -29,7 +29,7 @@ function BestOfferComponent() {
                 <div className="hotels flex flex-wrap rounded-2xl p-3 gap-3">
 
                     {Bestoffers.map((hotel) => (
-                        <div onClick={() => details(hotel.id)} className="hotel bg-[#ECEDF5] rounded-2xl p-3 flex flex-wrap w-[32%] " >
+                        <div onClick={() => details(hotel.id)} key={hotel.id} className="hotel bg-[#ECEDF5] rounded-2xl p-3 flex flex-wrap w-[32%] " >
                             <div className="hotel_img w-1/5">
                                 <img className='w-12 h-12 rounded-full object-cover' src={hotel.image} alt="" />
 

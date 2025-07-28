@@ -1,68 +1,70 @@
-// import React from 'react'
-// import headerBg from '../../assets/images/header-bg.png';
-// import SideBar from '../SideBar/SideBar';
-
-
-// function NavBar() {
-//   return (
-//     <>
-//       <div className="w-screen h-[325px] bg-cover bg-no-repeat bg-center mb-4"
-//         style={{ backgroundImage: `url(${headerBg})` }}>
-
-
-//         <div className="adjust-width w-screen flex justify-between pt-8">
-//           <SideBar className="fixed top-0 left-0 z-50" />
-
-//           <div className="links">
-//             <div className="login_links">
-//               <a href="#" className="text-lg  text-white hover:underline">Login</a>
-//               <a href="#" className="text-lg  text-white hover:underline pl-2">Sign up</a>
-//             </div>
-//             <div className="page_Links">
-//               <a href="#" className="text-lg  text-white hover:underline">Login</a>
-//               <a href="#" className="text-lg  text-white hover:underline pl-2">Sign up</a>
-//             </div>
-//           </div>
-
-
-//         </div>
-
-//       </div>
-
-
-//     </>
-//   )
-// }
-
-// export default NavBar
-
-
-
 import React from 'react'
 import headerBg from '../../assets/images/header-bg.png';
-import SideBar from '../SideBar/SideBar';
 import LoginLinks from '../LoginLinks/LoginLinks';
+import { useDispatch, useSelector } from 'react-redux';
+import { Dropdown, DropdownDivider, DropdownHeader, DropdownItem } from "flowbite-react";
+import { HiCog, HiCurrencyDollar, HiLogout, HiViewGrid } from "react-icons/hi";
+import { logout } from '../../store/userSlice';
+
 
 
 function NavBar() {
+  // console.log(user?.username);
+
+  const dispatch = useDispatch();
+  const user = useSelector((state) => state.user.user);
+
+  const handleLogout = () => {
+    dispatch(logout());
+    
+  };
   return (
     <>
-      <div className="flex flex-col justify-between  w-screen h-[325px] bg-cover bg-no-repeat bg-center mb-4"
-        style={{ backgroundImage: `url(${headerBg})` }}>
-
-        <div className='flex justify-between  ml-auto'>
-          {/* <SideBar className="fixed top-0 left-0 z-50" /> */}
-          
-          <LoginLinks />
+      {user ? (
+        // if there is a user logged in
+        <div
+          className="flex flex-col justify-between w-screen h-[117px]  bg-no-repeat bg-cover mb-4"
+          style={{ backgroundImage: `url(${headerBg})` }}
+        >
+          <div className="flex justify-between ml-auto">
+            <Dropdown
+              label={
+                <div className="flex items-center gap-2">
+                  <img
+                    src="https://i.pravatar.cc/40"
+                    alt="user"
+                    className="w-8 h-8 rounded-full"
+                  />
+                  <span>{user.username}</span>
+                </div>
+              }
+            >
+              <DropdownHeader>
+                <span className="block text-sm">{user.username}</span>
+                <span className="block truncate text-sm font-medium">{user.email }</span>
+              </DropdownHeader>
+              <DropdownItem icon={HiViewGrid}>Dashboard</DropdownItem>
+              <DropdownItem icon={HiCog}>Settings</DropdownItem>
+              <DropdownItem icon={HiCurrencyDollar}>Earnings</DropdownItem>
+              <DropdownDivider />
+              <DropdownItem onClick={handleLogout} icon={HiLogout}>Sign out</DropdownItem>
+            </Dropdown>
+          </div>
         </div>
-
-        <div className='flex justify-between  ml-auto'>
-          <LoginLinks />
-          
+      ) : (
+        // if there is no user logged in
+        <div
+          className="flex flex-col justify-between w-screen h-[325px] bg-cover bg-no-repeat bg-center mb-4"
+          style={{ backgroundImage: `url(${headerBg})` }}
+        >
+          <div className="flex justify-between ml-auto">
+            <LoginLinks />
+          </div>
+          <div className="flex justify-between ml-auto">
+            <LoginLinks />
+          </div>
         </div>
-
-
-      </div>
+      )}
 
     </>
   )
