@@ -14,6 +14,8 @@ import { loadUserFromStorage } from './store/userSlice'
 import HotelCard from './components/HotelCard/HotelCard'
 import HotelsPage from './pages/HotelsPage/HotelsPage'
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
+import MyBookings from './pages/MyBookingsPage/MyBookingsPage'
+import HotelSearchPage from './pages/HotelSearchPage/HotelSearchPage'
 
 function App() {
 
@@ -35,20 +37,24 @@ function App() {
         <Route
           path="/bookingreview/:id"
           element={
-            <ProtectedRoute>
-              <BookingReview />
-            </ProtectedRoute>
+            // <ProtectedRoute>
+            <BookingReview />
+            // </ProtectedRoute>
           }
         />
-      {/* <Route path="/bookingreview/:id" element={<BookingReview />} /> */}
-      <Route path="/login" element={<LoginPage />} />
-      <Route path="/register" element={<RegisterPage />} />
-      <Route path="/hotels" element={<HotelsPage />} />
+        {/* <Route path="/bookingreview/:id" element={<BookingReview />} /> */}
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/register" element={<RegisterPage />} />
+        <Route path="/hotels" element={<HotelsPage />} />
+        <Route path="/mybookings" element={<MyBookings />} />
+        <Route path="/searchpage" element={<HotelSearchPage />} />
 
 
 
 
-    </Routes>
+
+
+      </Routes>
     </div >
   )
 }

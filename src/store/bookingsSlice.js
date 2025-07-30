@@ -4,10 +4,20 @@ const bookingsSlice = createSlice({
   name: "bookings",
   initialState: {
     bookings: [],
+    currentBooking: {
+      checkIn: "",
+      checkOut: "",
+      nights: 0,
+      totalPrice: 0,
+    },
   },
   reducers: {
-    addBooking: (state, action) => {
-      state.bookings.push(action.payload);
+    setCurrentBooking: (state, action) => {
+      state.currentBooking = { ...state.currentBooking, ...action.payload };
+    },
+    addBooking: (state) => {
+      state.bookings.push(state.currentBooking);
+      state.currentBooking = { checkIn: "", checkOut: "", nights: 0, totalPrice: 0 };
     },
     clearBookings: (state) => {
       state.bookings = [];
@@ -15,5 +25,5 @@ const bookingsSlice = createSlice({
   },
 });
 
-export const { addBooking, clearBookings } = bookingsSlice.actions;
+export const { setCurrentBooking, addBooking, clearBookings } = bookingsSlice.actions;
 export default bookingsSlice.reducer;

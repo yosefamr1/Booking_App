@@ -7,6 +7,9 @@ function HotelCard({ hotel, onClick }) {
 
     const amenities = hotel.amenities;
     console.log(amenities);
+    const details = (hotelid) => {
+        navigate(`/details/${hotelid}`);
+    };
 
 
     return (
@@ -53,11 +56,11 @@ function HotelCard({ hotel, onClick }) {
                             <p className="text-xl font-bold">${hotel.pricing[0].originalPrice}</p>
                         </div>
                         <div className="flex gap-2">
-                            <button onClick={onClick} className="px-3 py-1 border rounded-md text-gray-700">
+                            <button onClick={()=>navigate(`/details/${hotel.id}`)} className="px-3 py-1 border rounded-md text-gray-700">
                                 View Details
                             </button>
-                            <button  className="px-3 py-1 bg-blue-500 text-white rounded-md"
-                             onClick={() => navigate(`/bookingreview/${hotel.id}`, { state: { hotel } })}
+                            <button className="px-3 py-1 bg-blue-500 text-white rounded-md"
+                                onClick={() => navigate(`/bookingreview/${hotel.id}`, { state: { hotel } })}
                             >
                                 BOOK NOW
                             </button>

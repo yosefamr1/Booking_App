@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { addBooking } from "../../store/bookingsSlice";
 
 function PaymentDetails() {
     const [formData, setFormData] = useState({
@@ -14,14 +16,21 @@ function PaymentDetails() {
         cardHolder: "",
     });
 
+    const dispatch = useDispatch();
+    const booking = useSelector((state) => state.bookings.currentBooking);
+
+    const isDisabled = !booking.checkIn || !booking.checkOut;
+
+    const handlePayNow = () => {
+        dispatch(addBooking());
+        alert("Booking Confirmed!");
+        console.log();
+        
+    };
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
-    const handlePay = () => {
-        localStorage.setItem("bookingData", JSON.stringify(formData));
-        alert("Booking Saved in LocalStorage ✅");
-    };
 
     return (
         <div className=" bg-white p-6 rounded-lg shadow-md space-y-6">
@@ -128,11 +137,20 @@ function PaymentDetails() {
                 className="border p-2 rounded w-full"
             />
 
-            <button
+            {/* <button
                 onClick={handlePay}
                 className="bg-blue-600 text-white p-3 w-full rounded-lg hover:bg-blue-700"
             >
                 PAY NOW
+            </button> */}
+
+            <button
+                disabled={isDisabled}
+                onClick={handlePayNow}
+                className={`p-3 w-full rounded-lg text-white ${isDisabled ? "bg-gray-400 cursor-not-allowed" : "bg-blue-600 text-white  hover:bg-blue-700"
+                    }`}
+            >
+                Pay Now
             </button>
         </div>
     );
