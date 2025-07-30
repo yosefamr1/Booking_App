@@ -1,5 +1,5 @@
 import React from 'react'
-import headerBg from '../../assets/images/header-bg.png';
+import headerBg from '../../assets/images/Header-bg.png';
 import LoginLinks from '../LoginLinks/LoginLinks';
 import { useDispatch, useSelector } from 'react-redux';
 import { Dropdown, DropdownDivider, DropdownHeader, DropdownItem } from "flowbite-react";
