@@ -43,7 +43,7 @@ function SideBar() {
                             <SidebarItem href="/home" icon={() => <IoMdHome color="white" size={20} />} className='text-white pl-5' >
                                 {!collapsed && 'Home'}
                             </SidebarItem>
-                            <SidebarItem href="/login" icon={() => <FaClipboardUser color="white" size={20} />} className='text-white pl-5' >
+                            <SidebarItem href="/mybookings" icon={() => <FaClipboardUser color="white" size={20} />} className='text-white pl-5' >
                                 {!collapsed && 'My Bookings'}
                             </SidebarItem>
                             <SidebarItem href="/home" icon={() => <GiExplodingPlanet color="white" size={20} />} className='text-white pl-5' >

@@ -10,7 +10,6 @@ function HotelSearchPage() {
     const location = useLocation();
     const [hotels, setHotels] = useState([]);
 
-    // 📌 قراءة القيم من الـ URL
     const params = new URLSearchParams(location.search);
     const search = params.get("q") || "";
     const country = params.get("country") || "";
@@ -32,8 +31,7 @@ function HotelSearchPage() {
         };
 
         fetchHotels();
-    }, [search, country]); // ✅ كل مرة القيم تتغير، يعمل Fetch جديد
-
+    }, [search, country]);
     return (
         <>
             <NavBar className="w-full" />
@@ -43,25 +41,6 @@ function HotelSearchPage() {
             <div className="content ml-80 p-4">
                 <SearchFilterBar />
                 <div className="hotels flex flex-wrap gap-6 justify-center">
-
-                    {/* <div className="grid grid-cols-3 gap-4 mt-6">
-        {hotels.map((hotel) => (
-          <div key={hotel.id} className="border p-3 rounded shadow">
-            <img
-              src={hotel.images.main}
-              alt={hotel.name}
-              className="w-full h-40 object-cover rounded"
-            />
-            <h3 className="text-lg font-bold">{hotel.name}</h3>
-            <p>{hotel.address.city}</p>
-            <p className="text-red-500 font-bold">
-              ${hotel.pricing[0].originalPrice} / night
-            </p>
-          </div>
-        ))}
-      </div> */}
-
-
 
                     {hotels.map((hotel) => (
 

@@ -51,7 +51,7 @@ function RegisterPage() {
             placeholder="Name"
             {...register("username", {
               required: "Name is required",
-              validate: (value) => !/\s/.test(value) || "No spaces allowed",
+              // validate: (value) => !/\s/.test(value) || "No spaces allowed",
             })}
           />
           {errors.username && <p>{errors.username.message}</p>}

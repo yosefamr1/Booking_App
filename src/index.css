@@ -28,3 +28,7 @@ h1 {
   font-weight: bold;
 
 }
+.input{
+    border: none;
+    background-color: #f0f4f6;
+}

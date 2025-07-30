@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import loginimg from '../../assets/images/login.png';
 import { useDispatch } from "react-redux";
 import { setUser } from "../../store/userSlice";
+import { loadBookingsForUser } from "../../store/bookingsSlice";
 
 export default function LoginPage() {
   const dispatch = useDispatch();
@@ -32,7 +33,7 @@ export default function LoginPage() {
     // localStorage.setItem("loggedUser", JSON.stringify(matchedUser));
     // Save logged user in redux
     dispatch(setUser(matchedUser));
-
+    dispatch(loadBookingsForUser());
     alert("Login successful!");
     navigate("/home");
   };

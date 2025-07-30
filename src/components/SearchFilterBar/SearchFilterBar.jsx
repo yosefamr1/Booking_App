@@ -101,14 +101,15 @@ function SearchFilterBar() {
   };
 
   return (
-    <div className="flex items-center gap-3 p-4 bg-gray-50 rounded-full shadow-lg mb-4">
+    <div className="flex gap-3 p-4 bg-gray-50 rounded-full shadow-lg mb-4 justify-between items-center">
       <div className="flex flex-col">
         <span className="text-xs text-gray-400 font-semibold">SEARCH</span>
         <input
           type="text"
+          placeholder="Egypt"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className="px-4 py-2 rounded-full bg-white font-semibold outline-none"
+          className="input px-4 py-2 rounded-full  font-semibold outline-none"
         />
       </div>
 
@@ -117,7 +118,7 @@ function SearchFilterBar() {
         <select
           value={country}
           onChange={(e) => setCountry(e.target.value)}
-          className="px-4 py-2 rounded-full bg-white font-semibold outline-none"
+          className="input px-4 py-2 rounded-full bg-white font-semibold outline-none"
         >
           <option value="">Select</option>
           <option value="EG">Egypt</option>
@@ -125,6 +126,30 @@ function SearchFilterBar() {
           <option value="MA">Morocco</option>
           <option value="GR">Greece</option>
         </select>
+      </div>
+
+        {/* Check-in */}
+      <div className="flex flex-col">
+        <span className="text-xs text-gray-400 font-semibold">CHECK-IN</span>
+        <input
+          type="date"
+          onChange={(e) =>
+            dispatch(setFilters({ ...filters, checkIn: e.target.value }))
+          }
+          className="input px-4 py-2 rounded-full bg-white font-semibold outline-none"
+        />
+      </div>
+
+      {/* Check-out */}
+      <div className="flex flex-col">
+        <span className="text-xs text-gray-400 font-semibold">CHECK-OUT</span>
+        <input
+          type="date"
+          onChange={(e) =>
+            dispatch(setFilters({ ...filters, checkOut: e.target.value }))
+          }
+          className=" input px-4 py-2 rounded-full bg-white font-semibold outline-none"
+        />
       </div>
 
       <button

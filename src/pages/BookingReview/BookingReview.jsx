@@ -17,7 +17,7 @@ function BookingReview() {
                 <SearchFilterBar />
                 <div className="booking flex justify-around m-4">
 
-                    <PaymentDetails />
+                    <PaymentDetails hotelId={id} />
                     <BookingSummary  hotelId={id} />
                 </div>
 

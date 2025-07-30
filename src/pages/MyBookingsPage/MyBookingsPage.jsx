@@ -1,33 +1,39 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
+import { loadBookingsForUser } from '../../store/bookingsSlice';
+import HotelCard from '../../components/HotelCard/HotelCard';
 
-function MyBookings() {
-  const bookings = useSelector((state) => state.bookings.bookings); // ✅ كل الحجوزات
+function MyBookingsPage() {
+  const dispatch = useDispatch();
+  const bookings = useSelector((state) => state.bookings.bookings); // ✅ نجيب الحجوزات من الريدكس
+  const user = useSelector((state) => state.user.user);
 
-  if (bookings.length === 0) {
-    return <p className="text-center mt-5">No bookings yet!</p>;
-  }
+  useEffect(() => {
+    // ✅ أول ما الصفحة تتفتح، نحمل الحجوزات بتاعت اليوزر الحالي من localStorage
+    if (user) {
+      dispatch(loadBookingsForUser());
+    }
+  }, [dispatch, user]);
+
+
+  useEffect(() => {
+    console.log("📌 Current Bookings:", bookings);
+  }, [bookings]);
 
   return (
-    <div className="max-w-3xl mx-auto p-6">
-      <h2 className="text-2xl font-bold mb-4">My Bookings</h2>
+    <div>
 
-      <div className="space-y-4">
-        {bookings.map((booking, index) => (
-          <div
-            key={index}
-            className="border p-4 rounded-lg bg-white shadow-md"
-          >
-            <h3 className="text-lg font-semibold">{booking.hotelName}</h3>
-            <p>Check-in: {booking.checkIn}</p>
-            <p>Check-out: {booking.checkOut}</p>
-            <p>Nights: {booking.nights}</p>
-            <p className="font-bold">Total: ${booking.totalPrice}</p>
-          </div>
-        ))}
-      </div>
+      {/* {bookings.map((hotel) => (
+        <div
+          key={hotel.id}
+          className=""
+        >
+          <HotelCard key={hotel.id} hotel={hotel}
+            onClick={() => details(hotel.id)}
+          />                    </div>
+      ))} */}
     </div>
-  );
+  )
 }
 
-export default MyBookings;
+export default MyBookingsPage
