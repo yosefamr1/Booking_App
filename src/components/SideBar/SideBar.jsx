@@ -61,7 +61,6 @@ function SideBar() {
             {!collapsed &&
                 <div className="mt-auto p-1">
                     <Button color="light" className="w-full text-red-500 border-red-500 hover:bg-red-100">
-                        {/* {!collapsed && 'Sign Up Now'} */}
                         Sign Up Now
                     </Button>
                 </div>

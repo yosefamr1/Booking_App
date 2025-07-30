@@ -15,7 +15,6 @@ function HotelCard({ hotel, onClick }) {
     return (
         <>
             <div className="flex bg-white rounded-lg shadow-md overflow-hidden w-[600px] h-[175px]">
-                {/* الصورة */}
                 <div className="w-1/3">
                     <img
                         src={hotel.images.main}
@@ -24,9 +23,7 @@ function HotelCard({ hotel, onClick }) {
                     />
                 </div>
 
-                {/* التفاصيل */}
                 <div className="w-2/3 p-4 flex flex-col justify-between">
-                    {/* العنوان + التقييم */}
                     <div className="flex justify-between items-start">
                         <div>
                             <h2 className="text-lg font-bold">
@@ -39,7 +36,6 @@ function HotelCard({ hotel, onClick }) {
                         </div>
                     </div>
 
-                    {/* الخدمات */}
                     <div className="flex gap-6 text-gray-600 text-sm mt-2">
                         <span className="flex items-center gap-1">
                             <FaParking /> Parking
@@ -49,7 +45,6 @@ function HotelCard({ hotel, onClick }) {
                         </span>
                     </div>
 
-                    {/* السعر والأزرار */}
                     <div className="flex justify-between items-center mt-3">
                         <div>
                             <span className="text-orange-500 font-bold text-sm">{hotel.pricing[0].discount}</span>

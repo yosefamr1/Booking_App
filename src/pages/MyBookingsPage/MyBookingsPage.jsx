@@ -5,11 +5,10 @@ import HotelCard from '../../components/HotelCard/HotelCard';
 
 function MyBookingsPage() {
   const dispatch = useDispatch();
-  const bookings = useSelector((state) => state.bookings.bookings); // ✅ نجيب الحجوزات من الريدكس
+  const bookings = useSelector((state) => state.bookings.bookings); 
   const user = useSelector((state) => state.user.user);
 
   useEffect(() => {
-    // ✅ أول ما الصفحة تتفتح، نحمل الحجوزات بتاعت اليوزر الحالي من localStorage
     if (user) {
       dispatch(loadBookingsForUser());
     }

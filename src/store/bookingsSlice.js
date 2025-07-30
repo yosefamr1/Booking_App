@@ -16,7 +16,6 @@ const bookingsSlice = createSlice({
       state.currentBooking = { ...state.currentBooking, ...action.payload };
     },
 
-    // ✅ إضافة حجز جديد + تخزينه في localStorage لكل user
     addBooking: (state, action) => {
       state.bookings.push(action.payload);
 
@@ -31,7 +30,6 @@ const bookingsSlice = createSlice({
       }
     },
 
-    // ✅ تحميل الـ bookings الخاصة بالـ user من localStorage
     loadBookingsForUser: (state) => {
       const user = JSON.parse(localStorage.getItem("user"));
       if (user && user.email) {
@@ -43,7 +41,6 @@ const bookingsSlice = createSlice({
       }
     },
 
-    // ✅ مسح جميع الحجوزات الخاصة بالـ user
     clearBookings: (state) => {
       state.bookings = [];
 

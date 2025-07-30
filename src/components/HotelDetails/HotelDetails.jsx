@@ -48,7 +48,6 @@ function HotelDetails({ hotelId }) {
                 </div>
                 <div className="hoteltext">
                     <h3 className='text-base font-bold'>Hotel review</h3>
-                    {/* reviews */}
                     <h3>About</h3>
                     <p>{hotel.description}</p>
                     <Button
