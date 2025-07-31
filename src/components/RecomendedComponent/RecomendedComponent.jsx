@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { fetchRecommendedHotels } from '../../network/hotelsAPI';
-import RecomendedHotelCard from '../RecomendedHotelCard/HotelCard';
+import RecomendedHotelCard from '../RecomendedHotelCard/RecomendedHotelCard';
 import { IoChevronBack, IoChevronForward } from 'react-icons/io5';
 
 
@@ -75,8 +75,7 @@ function RecomendedComponent() {
 
                 <button
                     onClick={handleNext}
-                    className="
-            absolute
+                    className="      absolute
             left-[95%]
            bg-white shadow rounded-full p-2
             hover:bg-gray-100 transition-colors cursor-pointer

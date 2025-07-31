@@ -15,7 +15,7 @@ function SearchFilterBar() {
   };
 
   return (
-    <div className="flex gap-3 p-4 bg-gray-50 rounded-full shadow-lg mb-4 justify-between items-center">
+    <div className="flex gap-3 p-4 bg-gray-50 rounded-full shadow-lg mb-4 justify-between items-center  ">
       <div className="flex flex-col">
         <span className="text-xs text-gray-400 font-semibold">SEARCH</span>
         <input
@@ -23,7 +23,7 @@ function SearchFilterBar() {
           placeholder="Egypt"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className="input px-4 py-2 rounded-full  font-semibold outline-none"
+          className="input rounded-full  font-semibold outline-none"
         />
       </div>
 
@@ -32,7 +32,7 @@ function SearchFilterBar() {
         <select
           value={country}
           onChange={(e) => setCountry(e.target.value)}
-          className="input px-4 py-2 rounded-full bg-white font-semibold outline-none"
+          className="input  rounded-full bg-white font-semibold outline-none"
         >
           <option value="">Select</option>
           <option value="EG">Egypt</option>
@@ -50,7 +50,7 @@ function SearchFilterBar() {
           onChange={(e) =>
             dispatch(setFilters({ ...filters, checkIn: e.target.value }))
           }
-          className="input px-4 py-2 rounded-full bg-white font-semibold outline-none"
+          className="input rounded-full bg-white font-semibold outline-none"
         />
       </div>
 
@@ -62,7 +62,7 @@ function SearchFilterBar() {
           onChange={(e) =>
             dispatch(setFilters({ ...filters, checkOut: e.target.value }))
           }
-          className=" input px-4 py-2 rounded-full bg-white font-semibold outline-none"
+          className=" input rounded-full bg-white font-semibold outline-none"
         />
       </div>
 

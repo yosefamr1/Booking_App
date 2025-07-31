@@ -48,32 +48,50 @@ function HotelDetails({ hotelId }) {
                         </div>
                     )}
                 </div>
-              
 
-                <div className="w-1/2 flex flex-col justify-between">
+
+                <div className="w-1/2 flex flex-col justify-between p-3">
                     <div>
-                        <h2 className="text-2xl font-bold">{hotel.name}</h2>
+                        <h2 className="text-2xl font-bold">Hotel Review</h2>
 
-                        <div className="flex items-center gap-2 mt-1">
-                            <span className="bg-blue-600 text-white px-2 py-1 rounded-md text-sm font-bold">
-                                {hotel.rating.score}
-                            </span>
-                            <span className="text-gray-500">{hotel.rating.score} Reviews</span>
-                            <FaStar className="text-yellow-500" />
+                        <div className='flex justify-between '>
+                            <div className="flex items-center gap-2 mt-1">
+                                <span className="bg-[#3C6097] text-white rounded-md text-sm font-bold flex gap-2 items-center p-3">
+                                    {hotel.rating.score}
+                                    <FaStar className="text-yellow-500" />
+                                </span>
+                                <div className='flex flex-col'>
+                                    <span className="font-bold text-sm">{hotel.rating.status}</span>
+                                    <span className="text-gray-500">{hotel.rating.reviewCount} Reviews</span>
+                                </div>
+                            </div>
+
+                            <div className="flex flex-col  text-xl items-baseline">
+                                <span className="text-red-500 font-bold">{hotel.pricing[0].discount}</span>
+                                <span className="font-bold ml-3">${hotel.pricing[0].originalPrice}</span>
+                                <span className="text-gray-500 text-sm">per night</span>
+                            </div>
                         </div>
-
-                        <div className="mt-2 text-xl">
-                            <span className="text-red-500 font-bold">{hotel.pricing.discount}% OFF</span>
-                            <span className="font-bold ml-3">${hotel.pricing[0].originalPrice}</span>
-                            <span className="text-gray-500 text-sm"> / per night</span>
-                        </div>
-
+                        <h2 className="font-bold ">About</h2>
                         <p className="mt-3 text-gray-600">{hotel.description}</p>
 
                         <div className="flex items-center gap-2 mt-3 text-gray-700">
                             <FaMapMarkerAlt />
-                            <span>{hotel.address.street}</span>
+                            <span>{hotel.address.street} , {hotel.address.city} , {hotel.address.country}</span>
                         </div>
+                        <h2 className="font-bold ">Popular Service</h2>
+                        <div className="flex gap-3">
+                            {hotel.amenities.map((item, index) => (
+                                <span
+                                    key={index}
+                                    className="px-3 py-1 border border-[#012257] rounded-lg text-gray-700"
+                                >
+                                    {item}
+                                </span>
+                            ))}
+                        </div>
+
+
                     </div>
 
                     <Button

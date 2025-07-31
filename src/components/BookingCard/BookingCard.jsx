@@ -1,8 +1,17 @@
 import React from 'react'
+import { FaStar } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
 
-export  function BookingCard({ hotel }) {
+export function BookingCard({ hotel }) {
+
+  const navigate = useNavigate();
+
+  const details = (hotelid) => {
+    navigate(`/details/${hotelid}`);
+  };
   return (
-    <div className="flex items-center bg-white shadow-md rounded-lg overflow-hidden w-[800px]">
+    <div className="flex items-center bg-white shadow-md rounded-lg overflow-hidden w-[800px]"
+    onClick={() => details(hotel.id)}>
       <img
         src={hotel.images.main}
         alt={hotel.name}
@@ -17,7 +26,7 @@ export  function BookingCard({ hotel }) {
           </div>
 
           <div className="flex items-center bg-blue-500 text-white text-xs font-bold px-2 py-1 rounded-full">
-            {hotel.rating.score}
+            {hotel.rating.score}<FaStar className="ml-1 text-yellow-300" />
           </div>
         </div>
 
