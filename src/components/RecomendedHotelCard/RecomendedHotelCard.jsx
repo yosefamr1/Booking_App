@@ -1,6 +1,6 @@
 import { Card } from "flowbite-react";
 
-export function RecomendedHotelCard({ hotel, onClick }) {
+function RecomendedHotelCard({ hotel, onClick }) {
 
     return (
 
