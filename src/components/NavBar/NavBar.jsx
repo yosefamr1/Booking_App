@@ -6,6 +6,11 @@ import { Dropdown, DropdownDivider, DropdownHeader, DropdownItem } from "flowbit
 import { HiCog, HiCurrencyDollar, HiLogout, HiViewGrid } from "react-icons/hi";
 import { logout } from '../../store/userSlice';
 import NavIcons from '../NavIcons/NavIcons';
+import { PiUserCircleBold } from "react-icons/pi";
+import { useNavigate } from 'react-router-dom';
+import { FaClipboardUser } from 'react-icons/fa6';
+import { MdHotel } from 'react-icons/md';
+
 
 
 
@@ -14,6 +19,7 @@ function NavBar() {
 
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user.user);
+  const navigate = useNavigate();
 
   const handleLogout = () => {
     dispatch(logout());
@@ -27,15 +33,18 @@ function NavBar() {
           className="flex flex-col justify-between w-screen h-[117px]  bg-no-repeat bg-cover mb-4 p-4"
           style={{ backgroundImage: `url(${headerBg})` }}
         >
-          <div className="flex justify-between ml-auto">
+          <div className="flex justify-between rounded-3xl ml-auto bg-[#6C86B1]">
             <Dropdown
               label={
                 <div className="flex items-center gap-2">
-                  <img
+                  {/* <img
                     src="https://i.pravatar.cc"
                     alt="user"
                     className="w-8 h-8 rounded-full"
-                  />
+                  /> */}
+
+                  <PiUserCircleBold className='text-3xl' />
+
                   <span>{user.username}</span>
                 </div>
               }
@@ -44,9 +53,11 @@ function NavBar() {
                 <span className="block text-sm">{user.username}</span>
                 <span className="block truncate text-sm font-medium">{user.email}</span>
               </DropdownHeader>
-              <DropdownItem icon={HiViewGrid}>Dashboard</DropdownItem>
-              <DropdownItem icon={HiCog}>Settings</DropdownItem>
-              <DropdownItem icon={HiCurrencyDollar}>Earnings</DropdownItem>
+              <DropdownItem onClick={() => navigate("/mybookings")} icon={() => <FaClipboardUser color="black" size={20} />}
+              >Bookings</DropdownItem>
+              <DropdownItem onClick={() => navigate("/hotels")} icon={() => <MdHotel color="black" size={20} />}
+              >Hotels</DropdownItem>
+              {/* <DropdownItem icon={HiCurrencyDollar}>Earnings</DropdownItem> */}
               <DropdownDivider />
               <DropdownItem onClick={handleLogout} icon={HiLogout}>Sign out</DropdownItem>
             </Dropdown>
