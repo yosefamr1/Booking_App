@@ -38,7 +38,7 @@ function NavBar() {
               label={
                 <div className="flex items-center gap-2">
                   <PiUserCircleBold className='text-3xl' />
-                  <span>{user.username}</span>
+                   <span>{user.username}</span>
                 </div>
               }
             >
@@ -46,12 +46,12 @@ function NavBar() {
                 <span className="block text-sm">{user.username}</span>
                 <span className="block truncate text-sm font-medium">{user.email}</span>
               </DropdownHeader>
-              <DropdownItem onClick={() => navigate("/mybookings")} icon={() => <FaClipboardUser color="black" size={20} />}
+              <DropdownItem className='gap-4' onClick={() => navigate("/mybookings")} icon={() => <FaClipboardUser color="black" size={20} />}
               >Bookings</DropdownItem>
-              <DropdownItem onClick={() => navigate("/hotels")} icon={() => <MdHotel color="black" size={20} />}
+              <DropdownItem className='gap-4' onClick={() => navigate("/hotels")} icon={() => <MdHotel color="black" size={20} />}
               >Hotels</DropdownItem>
               <DropdownDivider />
-              <DropdownItem onClick={handleLogout} icon={HiLogout}>Sign out</DropdownItem>
+              <DropdownItem className='gap-4' onClick={handleLogout} icon={HiLogout}>Sign out</DropdownItem>
             </Dropdown>
           </div>
           <div className="w-fit  ml-80">

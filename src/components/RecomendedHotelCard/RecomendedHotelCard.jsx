@@ -4,7 +4,7 @@ export function RecomendedHotelCard({ hotel, onClick }) {
 
     return (
 
-      
+
         <div className="flex items-center bg-white shadow-lg rounded-2xl p-4 gap-5 w-[27rem] mb-8" onClick={onClick}>
             <img
                 src={hotel.images.main}
@@ -28,3 +28,6 @@ export function RecomendedHotelCard({ hotel, onClick }) {
 
     );
 }
+
+export default RecomendedHotelCard;
+
