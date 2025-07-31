@@ -37,9 +37,9 @@ function App() {
         <Route
           path="/bookingreview/:id"
           element={
-            // <ProtectedRoute>
-            <BookingReview />
-            // </ProtectedRoute>
+            <ProtectedRoute>
+              <BookingReview />
+            </ProtectedRoute>
           }
         />
         {/* <Route path="/bookingreview/:id" element={<BookingReview />} /> */}

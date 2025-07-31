@@ -14,7 +14,7 @@ function HotelCard({ hotel, onClick }) {
 
     return (
         <>
-            <div className="flex bg-white rounded-lg shadow-md overflow-hidden w-[600px] h-[175px]">
+            <div className="flex bg-white rounded-lg shadow-md overflow-hidden w-[600px] h-[200px]">
                 <div className="w-1/3">
                     <img
                         src={hotel.images.main}

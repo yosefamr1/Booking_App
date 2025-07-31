@@ -4,11 +4,14 @@ import { GiExplodingPlanet } from "react-icons/gi";
 import { FaClipboardQuestion } from "react-icons/fa6";
 import { IoMdHome } from "react-icons/io";
 import { FaClipboardUser } from "react-icons/fa6";
-import { useNavigate } from "react-router-dom"; 
+import { useNavigate } from "react-router-dom";
+import { useSelector } from 'react-redux';
 
 function SideBar() {
     const [collapsed, setCollapsed] = useState(false);
-    const navigate = useNavigate(); 
+    const navigate = useNavigate();
+    const user = useSelector((state) => state.user.user);
+
 
     const toggleSidebar = () => setCollapsed(!collapsed);
 
@@ -29,7 +32,7 @@ function SideBar() {
                     <SidebarItems className='!text-white my-[-16px] mx-[-16px]'>
                         <SidebarItemGroup className='bg-blue-600'>
                             <SidebarItem
-                                onClick={() => navigate("/home")} 
+                                onClick={() => navigate("/home")}
                                 icon={() => <IoMdHome color="white" size={20} />}
                                 className='text-white pl-5 cursor-pointer'>
                                 {!collapsed && 'Home'}
@@ -59,14 +62,20 @@ function SideBar() {
                     </SidebarItems>
                 </Sidebar>
             </div>
+            {!user ? (
+                !collapsed && (
+                    <div className="mt-auto p-1">
+                        <Button
+                            onClick={() => navigate("/register")}
+                            color="light"
+                            className="w-full text-red-500 border-red-500 hover:bg-red-100"
+                        >
+                            Sign Up Now
+                        </Button>
+                    </div>
+                )
+            ) : null}
 
-            {!collapsed &&
-                <div className="mt-auto p-1">
-                    <Button color="light" className="w-full text-red-500 border-red-500 hover:bg-red-100">
-                        Sign Up Now
-                    </Button>
-                </div>
-            }
         </div>
     );
 }
