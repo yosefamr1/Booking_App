@@ -51,3 +51,6 @@ function HotelsPage() {
 }
 
 export default HotelsPage
+
+
+

@@ -3,6 +3,8 @@ import { fetchHotelDetails } from '../../network/hotelsAPI';
 import { Carousel } from "flowbite-react";
 import Button from '../Button/Button'
 import { useNavigate, useParams } from "react-router-dom";
+import { FaStar } from 'react-icons/fa6';
+import { FaMapMarkerAlt } from 'react-icons/fa';
 
 
 function HotelDetails({ hotelId }) {
@@ -46,17 +48,39 @@ function HotelDetails({ hotelId }) {
                         </div>
                     )}
                 </div>
-                <div className="hoteltext">
-                    <h3 className='text-base font-bold'>Hotel review</h3>
-                    <h3>About</h3>
-                    <p>{hotel.description}</p>
-                    <Button
+              
 
+                <div className="w-1/2 flex flex-col justify-between">
+                    <div>
+                        <h2 className="text-2xl font-bold">{hotel.name}</h2>
+
+                        <div className="flex items-center gap-2 mt-1">
+                            <span className="bg-blue-600 text-white px-2 py-1 rounded-md text-sm font-bold">
+                                {hotel.rating.score}
+                            </span>
+                            <span className="text-gray-500">{hotel.rating.score} Reviews</span>
+                            <FaStar className="text-yellow-500" />
+                        </div>
+
+                        <div className="mt-2 text-xl">
+                            <span className="text-red-500 font-bold">{hotel.pricing.discount}% OFF</span>
+                            <span className="font-bold ml-3">${hotel.pricing[0].originalPrice}</span>
+                            <span className="text-gray-500 text-sm"> / per night</span>
+                        </div>
+
+                        <p className="mt-3 text-gray-600">{hotel.description}</p>
+
+                        <div className="flex items-center gap-2 mt-3 text-gray-700">
+                            <FaMapMarkerAlt />
+                            <span>{hotel.address.street}</span>
+                        </div>
+                    </div>
+
+                    <Button
                         label="Pay Now"
                         color="blue"
                         onClick={() => navigate(`/bookingreview/${id}`, { state: { hotel } })}
                     />
-
                 </div>
             </div>
         </div>

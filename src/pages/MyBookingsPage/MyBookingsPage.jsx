@@ -32,18 +32,15 @@ function MyBookingsPage() {
 
       <div className="content ml-80 p-4">
         <SearchFilterBar />
-        
-      {bookings.map((hotel) => (
-        <div
-          key={hotel.id}
-          className=""
-        >
-          <BookingCard key={hotel.id} hotel={hotel}
-            onClick={() => details(hotel.id)}
-          />                    </div>
-      ))}
+        <div className="bookings flex flex-col gap-12">
+          {bookings.map((hotel) => (
+            <BookingCard key={hotel.id} hotel={hotel}
+              onClick={() => details(hotel.id)}
+            />
+          ))}
+        </div>
 
-       </div>
+      </div>
     </>
 
 

@@ -4,7 +4,7 @@ export  function BookingCard({ hotel }) {
   return (
     <div className="flex items-center bg-white shadow-md rounded-lg overflow-hidden w-[800px]">
       <img
-        src={hotel.image}
+        src={hotel.images.main}
         alt={hotel.name}
         className="w-40 h-36 object-cover"
       />
@@ -17,6 +17,7 @@ export  function BookingCard({ hotel }) {
           </div>
 
           <div className="flex items-center bg-blue-500 text-white text-xs font-bold px-2 py-1 rounded-full">
+            {hotel.rating.score}
           </div>
         </div>
 
@@ -27,13 +28,13 @@ export  function BookingCard({ hotel }) {
 
         <div className="flex items-center justify-between mt-2">
           <div>
-            <span className="text-orange-500 text-sm font-bold">25% off </span>
-            {/* <span className="text-black font-bold text-lg">${hotel.price}</span> */}
+            <span className="text-orange-500 text-sm font-bold">{hotel.pricing[0].discount} </span>
+            <span className="text-black font-bold text-lg">${hotel.pricing[0].originalPrice}</span>
           </div>
 
           <div className="text-sm text-gray-600 flex gap-3">
-            {/* <span>From: {hotel.checkIn}</span> */}
-            {/* <span>To: {hotel.checkOut}</span> */}
+            <span>From: {hotel.checkIn}</span>
+            <span>To: {hotel.checkOut}</span>
           </div>
         </div>
       </div>
