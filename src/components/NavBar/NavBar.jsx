@@ -30,21 +30,14 @@ function NavBar() {
       {user ? (
         // if there is a user logged in
         <div
-          className="flex flex-col justify-between w-screen h-[117px]  bg-no-repeat bg-cover mb-4 p-4"
+          className="flex flex-col justify-between h-[117px] w-full bg-no-repeat bg-cover mb-4 p-4"
           style={{ backgroundImage: `url(${headerBg})` }}
         >
           <div className="flex justify-between rounded-3xl ml-auto bg-[#6C86B1]">
             <Dropdown
               label={
                 <div className="flex items-center gap-2">
-                  {/* <img
-                    src="https://i.pravatar.cc"
-                    alt="user"
-                    className="w-8 h-8 rounded-full"
-                  /> */}
-
                   <PiUserCircleBold className='text-3xl' />
-
                   <span>{user.username}</span>
                 </div>
               }
@@ -57,7 +50,6 @@ function NavBar() {
               >Bookings</DropdownItem>
               <DropdownItem onClick={() => navigate("/hotels")} icon={() => <MdHotel color="black" size={20} />}
               >Hotels</DropdownItem>
-              {/* <DropdownItem icon={HiCurrencyDollar}>Earnings</DropdownItem> */}
               <DropdownDivider />
               <DropdownItem onClick={handleLogout} icon={HiLogout}>Sign out</DropdownItem>
             </Dropdown>
@@ -69,7 +61,7 @@ function NavBar() {
       ) : (
         // if there is no user logged in
         <div
-          className="flex flex-col justify-between w-screen h-[325px] bg-cover bg-no-repeat bg-center mb-4 pr-16 pt-8"
+          className="flex flex-col justify-between w-full h-[325px] bg-cover bg-no-repeat bg-center mb-4 pr-16 pt-8"
           style={{ backgroundImage: `url(${headerBg})` }}
         >
           <div className="flex justify-between ml-auto">
