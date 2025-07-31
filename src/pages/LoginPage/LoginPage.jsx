@@ -45,13 +45,14 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="login_page w-4/5 flex gap-4 h-screen m-auto p-2 ">
+    <div className="login_page w-4/5 flex gap-4 m-auto p-2 ">
 
-      <div className="login-container w-1/2 h-screen m-auto bg-white text-center rounded-3xl p-8">
-        <div className="flex justify-center !mt-4"><img className="text-center" src={logo} alt="logo" /></div>
+      <div className=" login-container flex w-full  m-auto bg-white text-center rounded-3xl p-8 h-full">
+        <div className="form w-1/2">
+                  <div className="flex justify-center !mt-4"><img className="text-center" src={logo} alt="logo" /></div>
         <h2 className="text-2xl text-center text-black font-bold !mb-6 !mt-8">LOGIN</h2>
 
-        <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-3">
+        <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col py-5 w-4/5 m-auto h-full">
           <div className="text-start">
             <label className="block !mb-1 text-[#4D556F]">Email</label>
             <input
@@ -94,9 +95,9 @@ export default function LoginPage() {
           </Link>
           <p className="text-[#525252] text-center "><span className="text-[#1C1C1C] font-bold">Login</span> with Others</p>
 
-          <div className="flex justify-center items-center gap-2 p-2 border-2 border-black rounded-2xl cursor-pointer">
+          <div className="flex justify-center items-center gap-2 p-2 border-2 border-black rounded-2xl cursor-pointer mb-4">
             <FaGoogle />
-            <p className="text-[#1C1C1C]">Login with <span className="font-bold">google</span></p>
+            <p className="text-[#1C1C1C] ">Login with <span className="font-bold">google</span></p>
           </div>
           <div className="flex justify-center items-center gap-2 p-2 border-2 border-black rounded-2xl cursor-pointer">
             <FaFacebook />
@@ -104,9 +105,11 @@ export default function LoginPage() {
           </div>
 
         </form>
-      </div>
+        </div>
+
       <div className="register_img w-1/2">
         <img className=" m-auto w-full   h-full" src={loginimg} alt="Login" />
+      </div>
       </div>
     </div>
 

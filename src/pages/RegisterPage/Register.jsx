@@ -177,7 +177,7 @@ function RegisterPage() {
           </Link>
           <p className="text-[#525252] text-center "><span className="text-[#1C1C1C] font-bold">sign up</span> with Others</p>
 
-          <div className="flex justify-center items-center gap-2 p-2 border-2 border-black rounded-2xl cursor-pointer">
+          <div className="flex justify-center items-center gap-2 p-2 border-2 border-black rounded-2xl cursor-pointer mb-4">
             <FaGoogle />
             <p className="text-[#1C1C1C]">sign up with <span className="font-bold">google</span></p>
           </div>
