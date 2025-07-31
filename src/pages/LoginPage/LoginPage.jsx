@@ -45,7 +45,7 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="login_page flex gap-4 h-screen w-full p-2 ">
+    <div className="login_page w-4/5 flex gap-4 h-screen m-auto p-2 ">
 
       <div className="login-container w-1/2 h-screen m-auto bg-white text-center rounded-3xl p-8">
         <div className="flex justify-center !mt-4"><img className="text-center" src={logo} alt="logo" /></div>

@@ -43,13 +43,14 @@ function RegisterPage() {
   };
 
   return (
-    <div className="register_page flex gap-4 h-screen w-full p-2 ">
+    <div className="register_page flex gap-4 w-4/5 m-auto p-6 ">
 
-      <div className="register-container w-1/2 h-screen m-auto bg-white text-center rounded-3xl p-8">
-        <div className="flex justify-center !mt-4"><img className="text-center" src={logo} alt="logo" /></div>
-        <h2 className="text-2xl text-center text-black font-bold !mb-6 !mt-8">LOGIN</h2>
+      <div className=" register-container flex w-full  m-auto bg-white text-center rounded-3xl p-8 h-full">
+        <div className="form w-1/2">
+          <div className="flex justify-center !mt-4"><img className="text-center" src={logo} alt="logo" /></div>
+        <h2 className="text-2xl text-center text-black font-bold !mb-6 !mt-8">Sign up</h2>
 
-        <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col p-4 w-4/5 mx-auto" >
+        <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col py-5 w-4/5 m-auto h-full" >
 
           {/* Name */}
           <div className="text-start">
@@ -185,12 +186,13 @@ function RegisterPage() {
             <p className="text-[#1C1C1C]">sign up with <span className="font-bold">Facebook</span></p>
           </div>
         </form>
+        </div>
+        {/* //img  */}
+        <div className="register_img w-1/2 h-full">
+          <img className=" m-auto w-full h-full" src={loginimg} alt="Login" />
+        </div>
       </div>
 
-      {/* //img  */}
-      <div className="register_img w-1/2">
-        <img className=" m-auto w-full   h-full" src={loginimg} alt="Login" />
-      </div>
 
     </div>
 
