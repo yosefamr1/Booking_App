@@ -65,13 +65,13 @@ function SideBar() {
             {!user ? (
                 !collapsed && (
                     <div className="mt-auto p-1">
-                        <Button
+                        <button
                             onClick={() => navigate("/register")}
                             color="light"
-                            className="w-full text-red-500 border-red-500 hover:bg-red-100"
+                            className="bg-white p-1 rounded-xl w-full text-red-500 border-red-500 hover:bg-red-100"
                         >
                             Sign Up Now
-                        </Button>
+                        </button>
                     </div>
                 )
             ) : null}
