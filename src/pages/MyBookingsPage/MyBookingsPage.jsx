@@ -6,6 +6,7 @@ import SearchFilterBar from '../../components/SearchFilterBar/SearchFilterBar';
 import SideBar from '../../components/SideBar/SideBar';
 import NavBar from '../../components/NavBar/NavBar';
 import BookingCard from '../../components/BookingCard/BookingCard';
+import ProfileCard from '../../components/ProfileCard/ProfileCard';
 
 
 function MyBookingsPage() {
@@ -16,12 +17,14 @@ function MyBookingsPage() {
   useEffect(() => {
     if (user) {
       dispatch(loadBookingsForUser());
+      console.log("User loaded:", user.username);
+
     }
   }, [dispatch, user]);
 
 
   useEffect(() => {
-    console.log("📌 Current Bookings:", bookings);
+    console.log("Current Bookings:", bookings);
   }, [bookings]);
 
   return (
@@ -32,30 +35,21 @@ function MyBookingsPage() {
 
       <div className="content ml-80 p-4">
         <SearchFilterBar />
-        <div className="bookings flex flex-col gap-12">
-          {bookings.map((hotel) => (
-            <BookingCard key={hotel.id} hotel={hotel}
-              onClick={() => details(hotel.id)}
-            />
-          ))}
+        <div className="bookingpage flex justify-around ">
+          <div className="bookings flex flex-col gap-12">
+            {bookings.map((hotel) => (
+              <BookingCard key={hotel.id} hotel={hotel}
+                onClick={() => details(hotel.id)}
+              />
+            ))}
+          </div>
+          <ProfileCard username={user?.username || ""} />
         </div>
 
       </div>
     </>
 
 
-    // <div>
-
-    //   {/* {bookings.map((hotel) => (
-    //     <div
-    //       key={hotel.id}
-    //       className=""
-    //     >
-    //       <HotelCard key={hotel.id} hotel={hotel}
-    //         onClick={() => details(hotel.id)}
-    //       />                    </div>
-    //   ))} */}
-    // </div>
   )
 }
 

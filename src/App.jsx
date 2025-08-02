@@ -32,8 +32,6 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/home" element={<HomePage />} />
         <Route path="/details/:id" element={<Detailspage />} />
-
-
         <Route
           path="/bookingreview/:id"
           element={
@@ -42,11 +40,14 @@ function App() {
             </ProtectedRoute>
           }
         />
-        {/* <Route path="/bookingreview/:id" element={<BookingReview />} /> */}
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/hotels" element={<HotelsPage />} />
-        <Route path="/mybookings" element={<MyBookings />} />
+        <Route path="/mybookings" element={
+          <ProtectedRoute>
+            <MyBookings />
+          </ProtectedRoute>
+        } />
         <Route path="/searchpage" element={<HotelSearchPage />} />
 
 
