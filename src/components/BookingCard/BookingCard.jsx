@@ -1,5 +1,6 @@
 import React from 'react'
 import { FaStar } from 'react-icons/fa';
+import { MdDone } from 'react-icons/md';
 import { useNavigate } from 'react-router-dom';
 
 export function BookingCard({ hotel }) {
@@ -10,8 +11,10 @@ export function BookingCard({ hotel }) {
     navigate(`/details/${hotelid}`);
   };
   return (
-    <div className="flex items-center bg-white shadow-md rounded-lg overflow-hidden w-[800px]"
-    onClick={() => details(hotel.id)}>
+    <div className="flex items-center bg-white shadow-md rounded-lg overflow-hidden w-[800px]
+    transition-all duration-300 cursor-pointer
+             hover:-translate-y-2 hover:scale-[1.02] hover:shadow-xl"
+      onClick={() => details(hotel.id)}>
       <img
         src={hotel.images.main}
         alt={hotel.name}
@@ -30,9 +33,17 @@ export function BookingCard({ hotel }) {
           </div>
         </div>
 
-        <div className="flex items-center gap-4 text-gray-500 text-sm mt-2">
-          <span>Parking</span>
-          <span>Wifi</span>
+        <div className="flex text-gray-600 text-sm mt-2">
+          <div className="flex gap-2 flex-wrap">
+            {hotel.amenities.map((item, index) => (
+              <span
+                key={index}
+                className="flex text-gray-700"
+              >
+                <MdDone />{item}
+              </span>
+            ))}
+          </div>
         </div>
 
         <div className="flex items-center justify-between mt-2">

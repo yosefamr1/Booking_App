@@ -56,7 +56,8 @@ function BookingSummary({ hotelId }) {
   };
 
   return (
-    <div className="max-w-sm border rounded-lg shadow-md p-4 bg-white">
+    <div className="max-w-sm border rounded-lg shadow-md p-4 bg-white transition-all duration-300 cursor-pointer
+             hover:-translate-y-2 hover:scale-[1.02] hover:shadow-xl">
       <h2 className="text-xl font-bold mb-3">Summary</h2>
 
       <img

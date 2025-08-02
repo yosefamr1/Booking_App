@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { FaParking, FaStar, FaWifi } from 'react-icons/fa'
 import { useNavigate } from 'react-router-dom';
+import { MdDone } from "react-icons/md";
+
 
 function HotelCard({ hotel, onClick }) {
     const navigate = useNavigate();
@@ -14,7 +16,10 @@ function HotelCard({ hotel, onClick }) {
 
     return (
         <>
-            <div className="flex bg-white rounded-lg shadow-md overflow-hidden w-[600px] h-[200px]">
+            <div className="flex bg-white rounded-lg shadow-md overflow-hidden w-[600px] h-[200px] 
+            transition-all duration-300 cursor-pointer
+             hover:-translate-y-2 hover:scale-[1.02] hover:shadow-xl
+            ">
                 <div className="w-1/3">
                     <img
                         src={hotel.images.main}
@@ -36,13 +41,17 @@ function HotelCard({ hotel, onClick }) {
                         </div>
                     </div>
 
-                    <div className="flex gap-6 text-gray-600 text-sm mt-2">
-                        <span className="flex items-center gap-1">
-                            <FaParking /> Parking
-                        </span>
-                        <span className="flex items-center gap-1">
-                            <FaWifi /> Wifi
-                        </span>
+                    <div className="flex text-gray-600 text-sm mt-2">
+                        <div className="flex gap-2 flex-wrap">
+                            {hotel.amenities.map((item, index) => (
+                                <span
+                                    key={index}
+                                    className="flex text-gray-700"
+                                >
+                                    <MdDone />{item}
+                                </span>
+                            ))}
+                        </div>
                     </div>
 
                     <div className="flex justify-between items-center mt-3">
@@ -51,7 +60,7 @@ function HotelCard({ hotel, onClick }) {
                             <p className="text-xl font-bold">${hotel.pricing[0].originalPrice}</p>
                         </div>
                         <div className="flex gap-2">
-                            <button onClick={()=>navigate(`/details/${hotel.id}`)} className="px-3 py-1 border rounded-md text-gray-700">
+                            <button onClick={() => navigate(`/details/${hotel.id}`)} className="px-3 py-1 border rounded-md text-gray-700">
                                 View Details
                             </button>
                             <button className="px-3 py-1 bg-blue-500 text-white rounded-md"

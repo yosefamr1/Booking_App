@@ -5,7 +5,10 @@ export default function RecomendedHotelCard({ hotel, onClick }) {
     return (
 
 
-        <div className="flex items-center bg-white shadow-lg rounded-2xl p-4 gap-5 w-[27rem] mb-8" onClick={onClick}>
+        <div className="flex items-center bg-white shadow-lg rounded-2xl p-4 gap-5 w-[27rem] mb-8
+        transition-all duration-300 cursor-pointer
+             hover:-translate-y-2 hover:scale-[1.02] hover:shadow-xl
+        " onClick={onClick}>
             <img
                 src={hotel.images.main}
                 alt={hotel.name}
