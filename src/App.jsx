@@ -1,24 +1,24 @@
-import { useEffect, useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import NavBar from './components/NavBar/NavBar'
-import HomePage from './pages/HomePage/HomePage'
-import { Route, Routes } from 'react-router-dom'
-import Detailspage from './pages/DetailsPage/Detailspage'
-import LoginPage from './pages/LoginPage/LoginPage'
-import RegisterPage from './pages/RegisterPage/Register'
-import BookingReview from './pages/BookingReview/BookingReview'
-import { useDispatch } from 'react-redux'
-import { loadUserFromStorage } from './store/userSlice'
-import HotelCard from './components/HotelCard/HotelCard'
-import HotelsPage from './pages/HotelsPage/HotelsPage'
-import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
-import MyBookings from './pages/MyBookingsPage/MyBookingsPage'
-import HotelSearchPage from './pages/HotelSearchPage/HotelSearchPage'
+import { useEffect, useState } from "react";
+import reactLogo from "./assets/react.svg";
+import viteLogo from "/vite.svg";
+import "./App.css";
+import NavBar from "./components/NavBar/NavBar";
+import HomePage from "./pages/HomePage/HomePage";
+import { Route, Routes } from "react-router-dom";
+import Detailspage from "./pages/DetailsPage/Detailspage";
+import LoginPage from "./pages/LoginPage/LoginPage";
+import RegisterPage from "./pages/RegisterPage/Register";
+import BookingReview from "./pages/BookingReview/BookingReview";
+import { useDispatch } from "react-redux";
+import { loadUserFromStorage } from "./store/userSlice";
+import HotelCard from "./components/HotelCard/HotelCard";
+import HotelsPage from "./pages/HotelsPage/HotelsPage";
+import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
+import MyBookings from "./pages/MyBookingsPage/MyBookingsPage";
+import HotelSearchPage from "./pages/HotelSearchPage/HotelSearchPage";
+import NotDonePage from "./pages/NotDonePage/NotDonePage";
 
 function App() {
-
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -41,23 +41,21 @@ function App() {
           }
         />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/notdone" element={<NotDonePage />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/hotels" element={<HotelsPage />} />
-        <Route path="/mybookings" element={
-          <ProtectedRoute>
-            <MyBookings />
-          </ProtectedRoute>
-        } />
+        <Route
+          path="/mybookings"
+          element={
+            <ProtectedRoute>
+              <MyBookings />
+            </ProtectedRoute>
+          }
+        />
         <Route path="/searchpage" element={<HotelSearchPage />} />
-
-
-
-
-
-
       </Routes>
-    </div >
-  )
+    </div>
+  );
 }
 
-export default App
+export default App;

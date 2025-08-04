@@ -46,14 +46,14 @@ function SideBar() {
                             </SidebarItem>
 
                             <SidebarItem
-                                onClick={() => navigate("/home")}
+                                onClick={() => navigate("/hotels")}
                                 icon={() => <GiExplodingPlanet color="white" size={20} />}
                                 className='text-white pl-5 cursor-pointer'>
                                 {!collapsed && 'Explore'}
                             </SidebarItem>
 
                             <SidebarItem
-                                onClick={() => navigate("/home")}
+                                onClick={() => navigate("/notdone")}
                                 icon={() => <FaClipboardQuestion color="white" size={20} />}
                                 className='text-white pl-5 cursor-pointer'>
                                 {!collapsed && 'Support'}

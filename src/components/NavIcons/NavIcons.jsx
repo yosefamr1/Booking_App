@@ -9,9 +9,9 @@ export default function NavIcons() {
 
     const items = [
         { id: "hotel", label: "HOTEL", icon: <MdHotel />, path: "/hotels" },
-        { id: "villa", label: "VILLA", icon: <FaHome />, path: "" },
-        { id: "taxi", label: "TAXI", icon: <FaTaxi />, path: "" },
-        { id: "flights", label: "FLIGHTS", icon: <FaPlane />, path: "" },
+        { id: "villa", label: "VILLA", icon: <FaHome />, path: "/notdone" },
+        { id: "taxi", label: "TAXI", icon: <FaTaxi />, path: "/notdone" },
+        { id: "flights", label: "FLIGHTS", icon: <FaPlane />, path: "/notdone" },
     ];
 
     const handleClick = (id, path) => {
