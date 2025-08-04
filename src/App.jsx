@@ -17,6 +17,7 @@ import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 import MyBookings from "./pages/MyBookingsPage/MyBookingsPage";
 import HotelSearchPage from "./pages/HotelSearchPage/HotelSearchPage";
 import NotDonePage from "./pages/NotDonePage/NotDonePage";
+import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -44,6 +45,7 @@ function App() {
         <Route path="/notdone" element={<NotDonePage />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/hotels" element={<HotelsPage />} />
+        <Route path="*" element={<NotFoundPage />} />
         <Route
           path="/mybookings"
           element={
